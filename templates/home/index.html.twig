@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil
+{% endblock %}
+
+{% block body %}
+	<div class="container my-5">
+		<div class="jumbotron">
+			<h1 class="display-3">Bienvenue sur la page des Amis d'Eddy Malou !</h1>
+			<p class="lead">Philosophe et pseudo scientifique contemporain du Congo.</p>
+			<hr class="my-4">
+			<p>On aime son franc parler et ses discours alambiqués qui nous nous font nous pencher sur notre société !</p>
+			<p>Commencez par générer sa liste d'amis !</p>
+			<p class="lead">
+				<a class="btn btn-primary btn-lg" href="{{ path("friends_generate") }}" role="button">Remplir</a>
+			</p>
+		</div>
+	</div>
+
+{% endblock %}

@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Que d'amis !
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<h1 class="my-5">Voici la liste des amis d'Eddy Malou :</h1>
+
+		<div class="row">
+			<div class="col">
+				<table class="table">
+					<thead class"thead-dark">
+						<tr>
+							<th scope="col text-center">Nom Prénom</th>
+							<th scope="col text-center">Téléphone</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for friend in friends %}
+							<tr>
+								<td>
+									<span class="ml-2">{{ friend.lastName }}
+										{{ friend.firstName}}</span>
+								</td>
+								<td class="ml-2">{{ friend.phone }}</td>
+								<td>
+									<!-- Boutton pour accès modal -->
+									<button type="button" class="btn btn-info my-2" data-toggle="modal" data-target="#Modal{{loop.index}}">
+										<i class="fas fa-eye"></i>
+									</button>
+								</td>
+								<!-- Modal -->
+								<div class="modal fade" id="Modal{{loop.index}}" tabindex="-1" role="dialog" aria-labelledby="label{{friend.lastName}}" aria-hidden="true">
+									<div class="modal-dialog" role="document">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h5 class="modal-title" id="label{{friend.lastName}}">{{ friend.lastName | upper }}
+													{{ friend.firstName }}</h5>
+												<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+													<span aria-hidden="true">&times;</span>
+												</button>
+											</div>
+											<div class="modal-body">
+												<p>
+													<em>Adresse :</em>
+													{{ friend.address }}</p>
+												<p>
+													<em>Téléphone :</em>
+													{{ friend.phone }}</p>
+												<p>
+													<em>Citation préférée :</em>
+												</p>
+												<blockquote>{{ friend.quote }}</blockquote>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+												<a href="{{ path("friend_delete", {id : friend.id}) }}" class="link btn btn-danger">
+													<i class="fas fa-trash"></i>
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<!-- Réalisation de la pagination -->
+	<div class="row justify-content-center mt-3">
+		<div class="col-4">
+			<div class="pagination text-center">
+				{{ knp_pagination_render(friends)}}
+			</ul>
+		</div>
+	</div>
+	<script></script>
+{% endblock %}
