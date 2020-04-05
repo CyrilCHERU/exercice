@@ -46,8 +46,10 @@ class FriendController extends AbstractController
 
         if (count($friends) > 0) {
             for ($i = 0; $i < 50; $i++) {
-                $em->remove($friends[$i]);
-                $em->flush();
+                if (isset($friends[$i])) {
+                    $em->remove($friends[$i]);
+                    $em->flush();
+                }
             }
         }
 
