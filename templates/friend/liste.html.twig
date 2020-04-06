@@ -13,7 +13,7 @@
 					<thead class"thead-dark">
 						<tr>
 							<th scope="col text-center">Nom Prénom</th>
-							<th scope="col text-center">Téléphone</th>
+							<th scope="col text-center" class="cls">Téléphone</th>
 							<th></th>
 						</tr>
 					</thead>
@@ -24,7 +24,7 @@
 									<span class="ml-2">{{ friend.lastName }}
 										{{ friend.firstName}}</span>
 								</td>
-								<td class="ml-2">{{ friend.phone }}</td>
+								<td class="ml-2 cls">{{ friend.phone }}</td>
 								<td>
 									<!-- Boutton pour accès modal de visualisation-->
 									<button type="button" class="btn btn-info my-2" data-toggle="modal" data-target="#Modal{{friend.id}}">
