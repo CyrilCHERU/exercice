@@ -41,7 +41,6 @@
 					const PORT = 8000;
 $('.link').click(function () {
 $('.close-modal').click();
-
 // On récupère le numero de l'id du modal = id de l'Ami
 let idFriend = $(this).parent().parent().parent().parent().attr('id');
 let regexp = /[A-Z][a-z]+/g;
@@ -49,7 +48,16 @@ idFriend = idFriend.replace(regexp, '');
 $('#ModalDeConfirmation').css("display", "block");
 
 // Redirection vers la route de suppression de l'Ami
+$('#final_delete').click(function () {
+window.location.href = `http://localhost:${PORT}/delete/${idFriend}`;
+})
+});
 $('#delete').click(function () {
+let idFriend = $('.search').attr('id');
+let regexp = /[A-Z][a-z]+/g;
+idFriend = idFriend.replace(regexp, '');
+console.log(idFriend);
+$('#final_delete').click(function () {
 window.location.href = `http://localhost:${PORT}/delete/${idFriend}`;
 })
 });

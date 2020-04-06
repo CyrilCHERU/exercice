@@ -26,13 +26,17 @@
 								</td>
 								<td class="ml-2">{{ friend.phone }}</td>
 								<td>
-									<!-- Boutton pour accès modal -->
+									<!-- Boutton pour accès modal de visualisation-->
 									<button type="button" class="btn btn-info my-2" data-toggle="modal" data-target="#Modal{{friend.id}}">
 										<i class="fas fa-eye"></i>
 									</button>
+									<!-- Boutton pour accès modal de confirmation-->
+									<button id="delete" type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalDeConfirmation">
+										<i class="fas fa-trash"></i>
+									</button>
 								</td>
 								<!-- Modal -->
-								<div class="modal fade" id="Modal{{friend.id}}" tabindex="-1" role="dialog" aria-labelledby="label{{friend.lastName}}" aria-hidden="true">
+								<div class="modal fade search" id="Modal{{friend.id}}" tabindex="-1" role="dialog" aria-labelledby="label{{friend.lastName}}" aria-hidden="true">
 									<div class="modal-dialog" role="document">
 										<div class="modal-content">
 											<div class="modal-header">
@@ -86,7 +90,7 @@
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-							<button type="button" class="btn btn-danger" id="delete">Supprimer</button>
+							<button type="button" class="btn btn-danger" id="final_delete">Supprimer</button>
 						</div>
 					</div>
 				</div>
